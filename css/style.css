@@ -1717,3 +1717,7 @@ td.closed { opacity: .4; }
 @media (max-width: 660px) {
   .nav-wrap, .site-header.scrolled .nav-wrap { height: 72px; }
 }
+
+/* Desktop top-of-page logo: larger so "SCHOOL OF MUSIC" reads clearly */
+.nav-logo .logo-top { height: 76px; }
+@media (min-width: 901px) { .page-hero { padding-top: 11.5rem; } }
