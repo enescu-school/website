@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Book a Free Trial | Enescu School of Music</title>
+  <meta name="description" content="Book a free 30-minute trial lesson at Enescu School of Music, 4300 McKee Rd, Charlotte, NC. Piano, violin, cello, and drum lessons for all ages.">
+  <link rel="canonical" href="https://enescuschool.com/contact.html">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:site_name" content="Enescu School of Music">
+  <meta property="og:title" content="Contact &amp; Book a Free Trial | Enescu School of Music">
+  <meta property="og:description" content="Book a free 30-minute trial lesson at Enescu School of Music, 4300 McKee Rd, Charlotte, NC. Piano, violin, cello, and drum lessons for all ages.">
+  <meta property="og:image" content="https://enescuschool.com/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://enescuschool.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="Enescu School of Music — home">
+        <img class="logo-top" src="assets/images/logo-header.png" alt="Enescu School of Music" width="1086" height="291">
+        <img class="logo-scrolled" src="assets/images/logo-horizontal.png" alt="" aria-hidden="true" width="900" height="225">
+      </a>
+      <div class="nav-links-row">
+        <ul class="nav-links" id="nav-menu" role="list">
+          <li><a href="instruments.html">Instruments</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="schedule.html">Schedule &amp; Pricing</a></li>
+          <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+          <li><a href="contact.html#book" class="nav-cta">Book a Lesson</a></li>
+        </ul>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="page-hero">
+      <div class="page-hero-bg">
+        <img src="assets/images/photo-violin-closeup.jpg" alt="">
+      </div>
+      <div class="page-hero-content">
+        <div class="rule rule-left">Get in Touch</div>
+        <h1>Contact &amp;<br>Book a Lesson</h1>
+        <p>New students start with a free 30-minute trial lesson. Send us a request and we'll match you with a teacher and a time.</p>
+      </div>
+    </div>
+
+    <section class="section" id="book" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Form (handled by Netlify Forms) -->
+          <div>
+            <header class="section-head">
+              <div class="rule rule-left">Book a Lesson</div>
+              <h2 id="contact-heading">Request Your<br>Free Trial</h2>
+            </header>
+
+            <form class="contact-form" name="lesson-request" method="POST" action="/thank-you.html"
+              data-netlify="true" netlify-honeypot="company">
+              <input type="hidden" name="form-name" value="lesson-request">
+              <p class="hp" aria-hidden="true"><label>Leave this empty: <input name="company" tabindex="-1" autocomplete="off"></label></p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First Name</label>
+                  <input type="text" id="first-name" name="first_name" autocomplete="given-name" required>
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" name="last_name" autocomplete="family-name" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone <span class="opt">(optional)</span></label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="instrument">Instrument</label>
+                  <select id="instrument" name="instrument" required>
+                    <option value="" disabled selected>Select an instrument</option>
+                    <option value="Piano">Piano</option>
+                    <option value="Violin">Violin</option>
+                    <option value="Cello">Cello</option>
+                    <option value="Drums">Drums &amp; Percussion</option>
+                    <option value="Not sure">Not sure yet</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="level">Experience</label>
+                  <select id="level" name="level" required>
+                    <option value="" disabled selected>Select a level</option>
+                    <option value="Beginner">Beginner — no experience</option>
+                    <option value="1-2 years">Some experience (1–2 years)</option>
+                    <option value="3-5 years">Intermediate (3–5 years)</option>
+                    <option value="5+ years">Advanced (5+ years)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="student-age">Student's Age</label>
+                  <input type="text" id="student-age" name="student_age" placeholder="e.g. 8, or Adult" required>
+                </div>
+                <div class="form-group">
+                  <label for="preferred-days">Preferred Days / Times</label>
+                  <input type="text" id="preferred-days" name="preferred_times" placeholder="e.g. Tuesday evenings">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Anything else? <span class="opt">(optional)</span></label>
+                <textarea id="message" name="message"
+                  placeholder="Goals, questions, anything that's helpful to know."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-block">Send Request</button>
+              <p class="form-note">We'll reply within one business day to set up your trial lesson.</p>
+            </form>
+          </div>
+
+          <!-- Contact info -->
+          <aside class="contact-info" aria-label="Contact information">
+            <div>
+              <div class="rule rule-left">Location</div>
+              <h3 class="info-h">Find Us</h3>
+              <div class="contact-detail">
+                <p>4300 McKee Rd<br>Charlotte, NC 28270</p>
+                <p class="muted">Lessons are held in the building of the Romanian Baptist Church of Charlotte.</p>
+                <!-- TODO: add which entrance to use and where to park -->
+              </div>
+              <div class="map-container">
+                <iframe title="Map showing 4300 McKee Rd, Charlotte"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d993.5987150878225!2d-80.75838149632087!3d35.068990249982086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8854264e447195d7%3A0x1ceb3ec95d001165!2s4300%20McKee%20Rd%2C%20Charlotte%2C%20NC%2028270!5e1!3m2!1sen!2sus!4v1782096435801!5m2!1sen!2sus"
+                  allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+
+            <div>
+              <div class="rule rule-left">Reach Out</div>
+              <div class="contact-detail">
+                <p>Phone: <a href="tel:+17043236651">(704) 323-6651</a></p>
+                <p>Email: <a href="mailto:info@enescuschool.com">info@enescuschool.com</a></p>
+              </div>
+            </div>
+
+            <div>
+              <div class="rule rule-left">Hours</div>
+              <div class="contact-detail">
+                <p>Monday – Thursday: 10 AM – 8 PM</p>
+                <p>Friday: 10 AM – 7 PM</p>
+                <p>Saturday: 9 AM – 4 PM</p>
+                <p>Sunday: Closed</p>
+              </div>
+            </div>
+
+            <div class="quote-box">
+              <p>"Every new student begins with a free 30-minute trial lesson — no commitment, no pressure."</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/images/logo-stacked.png" alt="Enescu School of Music" width="820" height="551" loading="lazy">
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-h">The School</h2>
+        <p class="contact-detail">Private lessons in piano, violin, cello, and drums for ages 4 to adult.<br>Monday – Saturday.</p>
+      </div>
+      <nav class="footer-col" aria-label="Footer links">
+        <h2 class="footer-h">Navigate</h2>
+        <ul>
+          <li><a href="instruments.html">Instruments</a></li>
+          <li><a href="about.html">About the School</a></li>
+          <li><a href="schedule.html">Schedule &amp; Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#book">Book a Free Trial</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-h">Contact</h2>
+        <div class="contact-detail">
+          <p><a href="tel:+17043236651">(704) 323-6651</a></p>
+          <p><a href="mailto:info@enescuschool.com">info@enescuschool.com</a></p>
+          <p>4300 McKee Rd<br>Charlotte, NC 28270</p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Enescu School of Music</p>
+      <p>Charlotte, North Carolina</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
