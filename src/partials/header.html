@@ -1,0 +1,23 @@
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="{{ site.name }} — home">
+        <img class="logo-top" src="assets/images/logo-header.png" alt="{{ site.name }}" width="1000" height="224">
+        <img class="logo-scrolled" src="assets/images/logo-horizontal.png" alt="" aria-hidden="true" width="900" height="225">
+      </a>
+      <div class="nav-links-row">
+        <ul class="nav-links" id="nav-menu" role="list">
+{{ navItems }}
+          <li><a href="contact.html#book" class="nav-cta">Book a Lesson</a></li>
+        </ul>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>

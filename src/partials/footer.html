@@ -1,0 +1,40 @@
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/images/logo-stacked.png" alt="{{ site.name }}" width="820" height="551" loading="lazy">
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-h">The School</h2>
+        <p class="contact-detail">Private lessons in piano, violin, cello, and drums for ages 4 to adult.<br>Monday – Saturday.</p>
+      </div>
+      <nav class="footer-col" aria-label="Footer links">
+        <h2 class="footer-h">Navigate</h2>
+        <ul>
+          <li><a href="instruments.html">Instruments</a></li>
+          <li><a href="about.html">About the School</a></li>
+          <li><a href="schedule.html">Schedule &amp; Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#book">Book a Free Trial</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-h">Contact</h2>
+        <div class="contact-detail">
+          <p><a href="tel:{{ site.phoneLink }}">{{ site.phone }}</a></p>
+          <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+          <p>{{ site.address.street }}<br>{{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> {{ site.name }}</p>
+      <p>Charlotte, North Carolina</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

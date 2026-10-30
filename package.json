@@ -1,0 +1,9 @@
+{
+  "name": "enescu-school-website",
+  "private": true,
+  "description": "Enescu School of Music website (enescuschool.com)",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --serve"
+  }
+}

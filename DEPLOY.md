@@ -1,15 +1,11 @@
-# Putting enescuschool.com online (Netlify, free)
+# Hosting setup (Netlify + Porkbun)
 
-1. Create a free account at netlify.com.
-2. Sites → "Add new site" → "Deploy manually" → drag this whole folder onto the page.
-3. Booking form: Site configuration → Forms → enable form detection, then redeploy (drag the folder again).
-   Under Forms → Form notifications → add an email notification so requests reach your inbox.
-4. Domain: Domain management → Add domain → enescuschool.com. Netlify shows the DNS records to add;
-   enter them in Porkbun (Domain → DNS). HTTPS turns on automatically after a few minutes.
-5. Extra domains (enescuschoolofmusic.com, enescoschool.com, enescoschoolofmusic.com,
-   enescumusicschool.com, enescomusicschool.com): add each as a "domain alias" in Netlify,
-   or use Porkbun's URL forwarding to https://enescuschool.com.
-
-Before launch:
-- Set up the email address info@enescuschool.com (Porkbun email forwarding or Google Workspace) — it's on every page.
-- Add parking/entrance directions on contact.html (search for "TODO").
+- **Netlify project:** `enescu-school` (team "Enescu School of Music"), connected to GitHub `enescu-school/website`.
+- **Build:** defined in `netlify.toml` — Netlify runs `node build.js` and publishes `dist/`. Settings in that file override the Netlify dashboard.
+- **Deploys:** merging into `main` publishes enescuschool.com; every pull request gets a Deploy Preview link (visible to Netlify team members).
+- **Booking form:** Netlify → Forms. Add an email notification under Forms → Form notifications so requests reach your inbox.
+- **Domain:** enescuschool.com at Porkbun. DNS: `ALIAS @ → apex-loadbalancer.netlify.com`, `CNAME www → enescu-school.netlify.app`.
+  Keep Porkbun's MX and SPF TXT records — they handle email forwarding for info@enescuschool.com.
+- **HTTPS:** Let's Encrypt certificate issued and renewed automatically by Netlify.
+- **Extra domains** (enescuschoolofmusic.com, enescoschool.com, enescoschoolofmusic.com, enescumusicschool.com, enescomusicschool.com):
+  forward to https://enescuschool.com with Porkbun URL forwarding.

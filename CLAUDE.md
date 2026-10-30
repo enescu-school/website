@@ -1,8 +1,9 @@
 # Enescu School of Music website — notes for editing
 
-- Plain static site: HTML + `css/style.css` + `js/main.js`. No build step; Netlify publishes the repo root.
+- Static site assembled by `build.js` (plain Node, no dependencies) into `dist/`; Netlify runs it via `netlify.toml`. See README.md for the layout.
+- Shared parts live ONCE: school details + menu in `src/site.json`, `<head>`/header/footer in `src/partials/`. Page content in `src/pages/` (settings block at top). Static files in `public/`. Never edit or commit `dist/`.
+- Use `{{ site.* }}` placeholders instead of typing the phone/email/address. Run `node build.js` before pushing — it fails loudly on unknown placeholders.
 - Every push to `main` deploys to enescuschool.com automatically. Keep commits small with clear messages.
-- Header and footer are repeated in each page (`index`, `instruments`, `about`, `schedule`, `contact`, `thank-you`, `404`). Change them in ALL pages.
 - Header logo: desktop shows `logo-header.png` (text-only) at the top and `logo-horizontal.png` once scrolled; phones/tablets (≤1024px) always show `logo-horizontal.png`. ☰ menu at ≤900px.
 - Brand: EB Garamond logo; site fonts Playfair Display + DM Sans; gold #C9A252 on near-black.
 - Content rules: no invented teachers, credentials, stats, or testimonials. Real reviews only, with permission.
