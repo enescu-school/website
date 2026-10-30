@@ -27,7 +27,7 @@ If you make a typo in a placeholder, the terminal says exactly which file and pl
 ## Placeholders
 
 Use these anywhere in partials or pages: `{{ site.name }}`, `{{ site.phone }}`, `{{ site.phoneLink }}`, `{{ site.email }}`,
-`{{ site.address.street }}`, `{{ site.address.city }}`, `{{ site.address.state }}`, `{{ site.address.zip }}`.
+`{{ site.address.street }}`, `{{ site.address.city }}`, `{{ site.address.state }}`, `{{ site.address.zip }}`, and `{{ year }}` (current year, filled in at build time).
 
 ## Adding a new page
 

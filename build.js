@@ -11,6 +11,7 @@
 
   Placeholders you can use in partials AND pages:
     {{ site.name }}  {{ site.phone }}  {{ site.email }}  {{ site.address.street }} ...
+    {{ year }}  (the current year, filled in at build time)
   Page files start with a small settings block:
     ---
     title: Page title for the browser tab and Google
@@ -88,6 +89,7 @@ function build() {
     const data = {
       site,
       navItems,
+      year: String(new Date().getFullYear()),
       page: {
         title: escapeHtml(settings.title),
         description: escapeHtml(settings.description),
