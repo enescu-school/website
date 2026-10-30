@@ -2278,3 +2278,131 @@ td.closed {
     padding: 2.5rem 1.5rem 3.5rem;
   }
 }
+
+/* ============================================================
+   ABOUT PAGE — TEACHERS SECTION (mirrors the Enescu section)
+   Text left, photo right on desktop; photo above text on tablet/phone.
+   Both split sections share the same desktop height.
+   ============================================================ */
+#teachers .video-feature-inner,
+#enescu .video-feature-inner {
+  min-height: 680px;
+}
+
+#teachers .video-feature-inner {
+  grid-template-columns: 7fr 5fr; /* mirror of the Enescu section, so both photos are the same width */
+}
+
+#teachers .video-text-pane {
+  border-left: none;
+  border-right: 1px solid var(--border);
+}
+
+.about-split-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.about-split-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%; /* photo is already cropped around the violinist */
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  #teachers .video-feature-inner,
+  #enescu .video-feature-inner {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  /* Photo first, text below — same as the Enescu section */
+  #teachers .about-split-media {
+    order: -1;
+    height: min(62vw, 640px);
+  }
+
+  #teachers .video-text-pane {
+    border-right: none;
+    border-top: 1px solid var(--border);
+    padding: 3rem 2.5rem 3.5rem;
+  }
+}
+
+@media (max-width: 660px) {
+  #teachers .about-split-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  #teachers .video-text-pane {
+    padding: 2.5rem 1.5rem 3.5rem;
+  }
+}
+
+/* Desktop: keep the teachers and Enescu sections inside the site's central column
+   (same left/right edges as the rest of the page). Photos still run full height. */
+@media (min-width: 1025px) {
+  #teachers .video-feature-inner,
+  #enescu .video-feature-inner {
+    width: min(var(--max-w), 100% - 3rem);
+    margin-inline: auto;
+  }
+
+  /* Each section is one colour edge to edge: teachers on the page background,
+     Enescu on the panel colour (as before), with a hairline to separate it from "Our Approach" */
+  #teachers,
+  #teachers .video-text-pane,
+  #teachers .about-split-media {
+    background: var(--black);
+  }
+
+  #enescu {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+
+  /* Text lines up with the column edge, like the other sections */
+  #teachers .video-text-pane {
+    border-right: none;
+    padding: 4rem 4rem 4rem 0;
+  }
+
+  #enescu .video-text-pane {
+    border-left: none;
+    padding: 4rem 0 4rem 4rem;
+  }
+
+  /* Enescu portrait sits on the column's left edge */
+  #enescu .about-img-secondary {
+    right: auto;
+    left: 0;
+  }
+}
+
+/* Desktop: both split sections keep the same top/bottom breathing room as the other sections;
+   the photos stay 680px tall inside it */
+@media (min-width: 1025px) {
+  #teachers,
+  #enescu {
+    padding-block: 6rem;
+  }
+}
+
+/* Teachers photo on tablet/phone: keep the top of her head in frame; phones match the Enescu 4:5 shape */
+@media (max-width: 1024px) {
+  #teachers .about-split-media img {
+    object-position: 50% 12%;
+  }
+}
+
+@media (max-width: 660px) {
+  #teachers .about-split-media {
+    aspect-ratio: 4 / 5;
+  }
+}
