@@ -1,9 +1,9 @@
 {
   "name": "Enescu School of Music",
   "url": "https://enescuschool.com",
-  "phone": "(704) 323-6651",
-  "phoneLink": "+17043236651",
-  "phoneIntl": "+1-704-323-6651",
+  "phone": "(480) 853-1406",
+  "phoneLink": "+480-853-1406",
+  "phoneIntl": "+1-480-853-1406",
   "email": "info@enescuschool.com",
   "address": {
     "street": "4300 McKee Rd",
@@ -12,9 +12,21 @@
     "zip": "28270"
   },
   "nav": [
-    { "href": "instruments.html", "label": "Instruments" },
-    { "href": "about.html", "label": "About" },
-    { "href": "schedule.html", "label": "Schedule &amp; Pricing" },
-    { "href": "contact.html", "label": "Contact" }
+    {
+      "href": "instruments.html",
+      "label": "Instruments"
+    },
+    {
+      "href": "about.html",
+      "label": "About"
+    },
+    {
+      "href": "schedule.html",
+      "label": "Schedule &amp; Pricing"
+    },
+    {
+      "href": "contact.html",
+      "label": "Contact"
+    }
   ]
 }
