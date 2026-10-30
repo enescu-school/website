@@ -1031,7 +1031,7 @@ em {
 }
 
 .instrument-piano-img {
-  object-position: 15% 50%;
+  object-position: 55% 55%; /* piano centred, bench at the edge */
 }
 
 .instrument-violin-img {
@@ -2405,4 +2405,135 @@ td.closed {
   #teachers .about-split-media {
     aspect-ratio: 4 / 5;
   }
+}
+
+/* ============================================================
+   FREE ORCHESTRA (home page) + pricing note
+   ============================================================ */
+.orchestra-feature .video-pane::after {
+  background: rgba(10, 10, 10, 0.15); /* lighter overlay so the children are clearly visible */
+}
+
+.orchestra-facts {
+  list-style: none;
+  margin: 1.5rem 0 2rem;
+  display: grid;
+  gap: 0.6rem;
+  color: var(--white-dim);
+  font-size: var(--text-sm);
+}
+
+.orchestra-facts li {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.orchestra-facts strong {
+  color: var(--gold);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-top: 0.15em;
+}
+
+.policy-box {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .policy-box {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 660px) {
+  .policy-box {
+    grid-template-columns: 1fr;
+  }
+
+  .orchestra-facts li {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
+
+.orchestra-feature .video-pane video {
+  object-position: 50% 80%; /* keep the children, not the band behind them, in view */
+}
+
+/* Orchestra section: black background (alternates with the grey instrument cards above),
+   same 6rem padding as other sections, content inside the 1200px central column */
+#orchestra,
+#orchestra .video-text-pane {
+  background: var(--black);
+}
+
+@media (min-width: 1025px) {
+  #orchestra {
+    padding-block: 6rem;
+  }
+
+  #orchestra .video-feature-inner {
+    width: min(var(--max-w), 100% - 3rem);
+    margin-inline: auto;
+    min-height: 520px;
+  }
+
+  #orchestra .video-pane {
+    border-radius: var(--radius-lg);
+  }
+
+  #orchestra .video-text-pane {
+    border-left: none;
+    padding: 2rem 0 2rem 4rem;
+  }
+}
+
+/* Tablet/phone: video on top, text below, same black background */
+@media (max-width: 1024px) {
+  #orchestra .video-text-pane {
+    border-top: none;
+    padding: 3rem 1.5rem 4rem; /* same side margins as the rest of the page */
+  }
+}
+
+@media (max-width: 660px) {
+  #orchestra .video-text-pane {
+    padding: 2.5rem 1.5rem 3.5rem;
+  }
+}
+
+/* Orchestra still photo (replaces the video) */
+.orchestra-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.orchestra-media img {
+  display: block;
+  width: 100%;
+  height: auto; /* natural proportions of the photo */
+}
+
+@media (min-width: 1025px) {
+  #orchestra .video-feature-inner {
+    grid-template-columns: 7fr 5fr; /* wider photo so the whole orchestra fits */
+    align-items: center;
+    min-height: 0;
+  }
+
+  .orchestra-media {
+    border-radius: var(--radius-lg);
+  }
+
+}
+
+/* Home mosaic: the wide tile shows the grand piano; keep the keyboard in view */
+.photo-mosaic-item.wide img {
+  object-position: 50% 55%;
 }
