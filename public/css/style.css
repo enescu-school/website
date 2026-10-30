@@ -543,11 +543,10 @@ em {
 
 .about-enescu {
   position: relative;
-  background: var(--black);
+  background: var(--surface);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2.5rem;
 }
 
 .about-img-main {
@@ -2213,63 +2212,69 @@ td.closed {
 
 /* ============================================================
    GEORGE ENESCU PORTRAIT (About page)
-   Framed portrait beside the text; smaller on tablet, stacked on phones.
+   Desktop: photo runs the full height of the #enescu section, on the same
+   background as the text pane. Tablet: smaller photo beside the text.
+   Phone: photo centred above the text.
    ============================================================ */
 #enescu .video-feature-inner {
   grid-template-columns: 5fr 7fr;
   min-height: 0;
 }
 
+/* Desktop: the section's height comes from the text; the photo fills it top to bottom */
 .about-img-secondary {
-  display: block;
-  width: 100%;
-  max-width: 360px;
-  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
   aspect-ratio: 782 / 1056;
   object-fit: cover;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  display: block;
 }
 
-/* Tablets: keep photo and text side by side, photo a bit smaller */
+/* Tablets and phones: photo runs edge to edge across the screen, text below.
+   Cropped from the top so the face stays in view; no dark padding around it. */
 @media (max-width: 1024px) {
-  #enescu .video-feature-inner {
-    grid-template-columns: 2fr 3fr;
-  }
-
-  #enescu .video-text-pane {
-    border-top: none;
-    border-left: 1px solid var(--border);
-    padding: 3rem 2rem;
-  }
-
-  .about-enescu {
-    padding: 3rem 1.5rem;
-  }
-
-  .about-img-secondary {
-    max-width: 300px;
-  }
-}
-
-/* Phones: portrait centred above the text */
-@media (max-width: 660px) {
   #enescu .video-feature-inner {
     grid-template-columns: 1fr;
   }
 
   .about-enescu {
-    background: var(--surface);
-    padding: 3rem 1.5rem 0;
+    display: block;
+    padding: 0;
+    max-width: none;
+    /* overrides the 520px cap on .about-imgs for tablets */
   }
 
   .about-img-secondary {
-    max-width: 240px;
+    position: static;
+    width: 100%;
+    max-width: none;
+    height: min(62vw, 640px);
+    /* same framing on every tablet width */
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: 50% 8%;
   }
 
   #enescu .video-text-pane {
     border-left: none;
-    padding: 2rem 1.5rem 3.5rem;
+    border-top: 1px solid var(--border);
+    padding: 3rem 2.5rem 3.5rem;
+  }
+}
+
+/* Phones: a taller crop that fits the narrow screen */
+@media (max-width: 660px) {
+  .about-img-secondary {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-position: 50% 15%;
+  }
+
+  #enescu .video-text-pane {
+    padding: 2.5rem 1.5rem 3.5rem;
   }
 }
