@@ -543,9 +543,11 @@ em {
 
 .about-enescu {
   position: relative;
-  background: var(--surface);
+  background: var(--black);
   display: flex;
-  justify-content: end;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2.5rem;
 }
 
 .about-img-main {
@@ -2206,5 +2208,68 @@ td.closed {
 @media (min-width: 901px) {
   .page-hero {
     padding-top: 11.5rem;
+  }
+}
+
+/* ============================================================
+   GEORGE ENESCU PORTRAIT (About page)
+   Framed portrait beside the text; smaller on tablet, stacked on phones.
+   ============================================================ */
+#enescu .video-feature-inner {
+  grid-template-columns: 5fr 7fr;
+  min-height: 0;
+}
+
+.about-img-secondary {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  aspect-ratio: 782 / 1056;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Tablets: keep photo and text side by side, photo a bit smaller */
+@media (max-width: 1024px) {
+  #enescu .video-feature-inner {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  #enescu .video-text-pane {
+    border-top: none;
+    border-left: 1px solid var(--border);
+    padding: 3rem 2rem;
+  }
+
+  .about-enescu {
+    padding: 3rem 1.5rem;
+  }
+
+  .about-img-secondary {
+    max-width: 300px;
+  }
+}
+
+/* Phones: portrait centred above the text */
+@media (max-width: 660px) {
+  #enescu .video-feature-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-enescu {
+    background: var(--surface);
+    padding: 3rem 1.5rem 0;
+  }
+
+  .about-img-secondary {
+    max-width: 240px;
+  }
+
+  #enescu .video-text-pane {
+    border-left: none;
+    padding: 2rem 1.5rem 3.5rem;
   }
 }

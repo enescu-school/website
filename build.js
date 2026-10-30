@@ -47,9 +47,16 @@ function readPage(file) {
   const fm = raw.match(/^---\n([\s\S]*?)\n---\n/);
   if (!fm) throw new Error(`${path.basename(file)} is missing its --- settings block --- at the top`);
   const settings = {};
+  let lastKey = null;
   for (const line of fm[1].split('\n')) {
-    const i = line.indexOf(':');
-    if (i > 0) settings[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+    const m = line.match(/^([A-Za-z][\w-]*)\s*:(.*)$/);
+    if (m) {
+      lastKey = m[1];
+      settings[lastKey] = m[2].trim();
+    } else if (lastKey && line.trim()) {
+      // A long value wrapped onto the next line (e.g. by an auto-formatter): join it back.
+      settings[lastKey] = `${settings[lastKey]} ${line.trim()}`.trim();
+    }
   }
   for (const key of ['title', 'description']) {
     if (!settings[key]) throw new Error(`${path.basename(file)} needs a "${key}:" line in its settings block`);
