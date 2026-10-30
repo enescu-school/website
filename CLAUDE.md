@@ -8,3 +8,9 @@
 - Content rules: no invented teachers, credentials, stats, or testimonials. Real reviews only, with permission.
 - Booking form = Netlify Forms (`name="lesson-request"`, hidden `form-name`, honeypot `company`). Keep those attributes.
 - Check changes at phone (390px), tablet (768/1024px) and desktop (1440px) widths before pushing.
+
+## Working together (Christian in VS Code + Claude)
+- GitHub `main` is the shared source of truth. Both of us pull before editing and push when done.
+- Claude: always `git fetch` + rebase onto `origin/main` before editing; never force-push or rewrite history.
+- Claude's commits are authored as "Claude" so the history shows who changed what; Christian's commits use his GitHub name.
+- If both of us changed the same lines, resolve the conflict by keeping both intentions and ask Christian if unclear.
