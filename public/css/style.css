@@ -1634,7 +1634,7 @@ body {
 
 /* Program cards: description always visible on touch screens and keyboard focus */
 .program-card {
-  cursor: default;
+  cursor: pointer; /* the whole card links to that instrument's section */
 }
 
 .program-card:focus-within img {
@@ -2536,4 +2536,21 @@ td.closed {
 /* Home mosaic: the wide tile shows the grand piano; keep the keyboard in view */
 .photo-mosaic-item.wide img {
   object-position: 50% 55%;
+}
+
+/* Whole instrument card is clickable: the link's invisible ::after covers the card.
+   A transform on the link would trap that overlay inside the link itself, so the link
+   fades in without sliding. */
+.program-card-link,
+.program-card:hover .program-card-link,
+.program-card:focus-within .program-card-link {
+  transform: none;
+}
+
+.program-card-link {
+  position: static;
+}
+
+.program-card-link::after {
+  z-index: 1;
 }
