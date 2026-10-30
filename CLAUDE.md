@@ -12,5 +12,5 @@
 ## Working together (Christian in VS Code + Claude)
 - GitHub `main` is the shared source of truth. Both of us pull before editing and push when done.
 - Claude: always `git fetch` + rebase onto `origin/main` before editing; never force-push or rewrite history.
-- Claude's commits are authored as "Claude" so the history shows who changed what; Christian's commits use his GitHub name.
+- Claude's commits are authored as "Mike L." (user's choice, from Oct 30, 2026) so the history shows who changed what; Christian's commits use his GitHub name. Keep the Co-Authored-By/Claude-Session trailers in every commit message.
 - If both of us changed the same lines, resolve the conflict by keeping both intentions and ask Christian if unclear.
