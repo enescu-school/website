@@ -4,6 +4,7 @@
 - Shared parts live ONCE: school details + menu in `src/site.json`, `<head>`/header/footer in `src/partials/`. Page content in `src/pages/` (settings block at top). Static files in `public/`. Never edit or commit `dist/`.
 - Use `{{ site.* }}` placeholders instead of typing the phone/email/address. Run `node build.js` before pushing — it fails loudly on unknown placeholders.
 - Every push to `main` deploys to enescuschool.com automatically. Keep commits small with clear messages.
+- **Deploy budget (Netlify Free):** 300 credits/month, each production deploy (push/merge to `main`) costs 15 → max ~20 publishes per billing cycle (cycle resets on the 26th). Traffic also uses credits (20 per GB). Collect changes on a branch, preview them there (branch work is free), and merge to `main` ONCE per finished batch — never for each small tweak. Claude: never push to `main` directly.
 - Header logo: desktop shows `logo-header.png` (text-only) at the top and `logo-horizontal.png` once scrolled; phones/tablets (≤1024px) always show `logo-horizontal.png`. ☰ menu at ≤900px.
 - Brand: EB Garamond logo; site fonts Playfair Display + DM Sans; gold #C9A252 on near-black.
 - Content rules: no invented teachers, credentials, stats, or testimonials. Real reviews only, with permission.
