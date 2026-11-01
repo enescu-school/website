@@ -21,7 +21,7 @@ path: contact.html
         <div class="contact-grid">
 
           <!-- Form (handled by Netlify Forms) -->
-          <div>
+          <div class="form-col">
             <header class="section-head">
               <div class="rule rule-left">Book a Lesson</div>
               <h2 id="contact-heading">Request Your<br>Free Trial</h2>
@@ -35,29 +35,47 @@ path: contact.html
               <div class="form-row">
                 <div class="form-group">
                   <label for="first-name">First Name</label>
-                  <input type="text" id="first-name" name="first_name" autocomplete="given-name" required>
+                  <input type="text" id="first-name" name="first_name" autocomplete="given-name" required
+                    pattern="[\p{L}\p{M}'’ .\-]+" aria-describedby="first-name-error"
+                    data-msg-missing="Please enter the first name."
+                    data-msg-invalid="Letters only, please. Spaces, hyphens and apostrophes are fine (e.g. Mary-Jane).">
+                  <p class="field-error" id="first-name-error" aria-live="polite"></p>
                 </div>
                 <div class="form-group">
                   <label for="last-name">Last Name</label>
-                  <input type="text" id="last-name" name="last_name" autocomplete="family-name" required>
+                  <input type="text" id="last-name" name="last_name" autocomplete="family-name" required
+                    pattern="[\p{L}\p{M}'’ .\-]+" aria-describedby="last-name-error"
+                    data-msg-missing="Please enter the last name."
+                    data-msg-invalid="Letters only, please. Spaces, hyphens and apostrophes are fine (e.g. O'Neil).">
+                  <p class="field-error" id="last-name-error" aria-live="polite"></p>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" id="email" name="email" autocomplete="email" required>
+                  <input type="email" id="email" name="email" autocomplete="email" required
+                    aria-describedby="email-error"
+                    data-msg-missing="Please enter an email address."
+                    data-msg-invalid="Please enter a valid email address, e.g. name@example.com.">
+                  <p class="field-error" id="email-error" aria-live="polite"></p>
                 </div>
                 <div class="form-group">
-                  <label for="phone">Phone <span class="opt">(optional)</span></label>
-                  <input type="tel" id="phone" name="phone" autocomplete="tel">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required
+                    placeholder="(704) 555-0123" pattern="[\d\s\(\)\+\.\-]{10,}"
+                    aria-describedby="phone-error" data-phone
+                    data-msg-missing="Please enter a phone number so we can call you back."
+                    data-msg-invalid="Please enter a 10-digit phone number with area code, e.g. (704) 555-0123.">
+                  <p class="field-error" id="phone-error" aria-live="polite"></p>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
                   <label for="instrument">Instrument</label>
-                  <select id="instrument" name="instrument" required>
+                  <select id="instrument" name="instrument" required aria-describedby="instrument-error"
+                    data-msg-missing="Please choose an instrument (or “Not sure yet”).">
                     <option value="" disabled selected>Select an instrument</option>
                     <option value="Piano">Piano</option>
                     <option value="Violin">Violin</option>
@@ -66,29 +84,81 @@ path: contact.html
                     <option value="Drums">Drums &amp; Percussion</option>
                     <option value="Not sure">Not sure yet</option>
                   </select>
+                  <p class="field-error" id="instrument-error" aria-live="polite"></p>
                 </div>
                 <div class="form-group">
                   <label for="level">Experience</label>
-                  <select id="level" name="level" required>
+                  <select id="level" name="level" required aria-describedby="level-error"
+                    data-msg-missing="Please choose an experience level.">
                     <option value="" disabled selected>Select a level</option>
                     <option value="Beginner">Beginner — no experience</option>
                     <option value="1-2 years">Some experience (1–2 years)</option>
                     <option value="3-5 years">Intermediate (3–5 years)</option>
                     <option value="5+ years">Advanced (5+ years)</option>
                   </select>
+                  <p class="field-error" id="level-error" aria-live="polite"></p>
                 </div>
               </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="student-age">Student's Age</label>
-                  <input type="text" id="student-age" name="student_age" placeholder="e.g. 8, or Adult" required>
-                </div>
-                <div class="form-group">
-                  <label for="preferred-days">Preferred Days / Times</label>
-                  <input type="text" id="preferred-days" name="preferred_times" placeholder="e.g. Tuesday evenings">
-                </div>
+              <div class="form-group form-group-half">
+                <label for="student-age">Student's Age</label>
+                <select id="student-age" name="student_age" required aria-describedby="student-age-error"
+                  data-msg-missing="Please choose the student's age.">
+                  <option value="" disabled selected>Select age</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                  <option value="16+">16+ (including adults)</option>
+                </select>
+                <p class="field-error" id="student-age-error" aria-live="polite"></p>
               </div>
+
+              <fieldset class="form-group time-picker">
+                <legend>Preferred Days &amp; Times <span class="opt">(optional)</span></legend>
+                <p class="time-hint">Tap the times that usually work for you — choose as many as you like.</p>
+                <input type="hidden" name="preferred_times" id="preferred-times" value="">
+                <div class="time-grid">
+                  <span aria-hidden="true"></span>
+                  <span class="time-head" aria-hidden="true">Morning</span>
+                  <span class="time-head" aria-hidden="true">Afternoon</span>
+                  <span class="time-head" aria-hidden="true">Evening</span>
+                    <span class="time-day" aria-hidden="true">Mon</span>
+                    <label class="time-cell"><input type="checkbox" value="Monday morning" aria-label="Monday morning, 10 AM to 12 PM"><span aria-hidden="true"><span class="t-from">10 AM</span> <span class="t-to">– 12 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Monday afternoon" aria-label="Monday afternoon, 1 PM to 5 PM"><span aria-hidden="true"><span class="t-from">1 PM</span> <span class="t-to">– 5 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Monday evening" aria-label="Monday evening, 5 PM to 8 PM"><span aria-hidden="true"><span class="t-from">5 PM</span> <span class="t-to">– 8 PM</span></span></label>
+                    <span class="time-day" aria-hidden="true">Tue</span>
+                    <label class="time-cell"><input type="checkbox" value="Tuesday morning" aria-label="Tuesday morning, 10 AM to 12 PM"><span aria-hidden="true"><span class="t-from">10 AM</span> <span class="t-to">– 12 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Tuesday afternoon" aria-label="Tuesday afternoon, 1 PM to 5 PM"><span aria-hidden="true"><span class="t-from">1 PM</span> <span class="t-to">– 5 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Tuesday evening" aria-label="Tuesday evening, 5 PM to 8 PM"><span aria-hidden="true"><span class="t-from">5 PM</span> <span class="t-to">– 8 PM</span></span></label>
+                    <span class="time-day" aria-hidden="true">Wed</span>
+                    <label class="time-cell"><input type="checkbox" value="Wednesday morning" aria-label="Wednesday morning, 10 AM to 12 PM"><span aria-hidden="true"><span class="t-from">10 AM</span> <span class="t-to">– 12 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Wednesday afternoon" aria-label="Wednesday afternoon, 1 PM to 5 PM"><span aria-hidden="true"><span class="t-from">1 PM</span> <span class="t-to">– 5 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Wednesday evening" aria-label="Wednesday evening, 5 PM to 8 PM"><span aria-hidden="true"><span class="t-from">5 PM</span> <span class="t-to">– 8 PM</span></span></label>
+                    <span class="time-day" aria-hidden="true">Thu</span>
+                    <label class="time-cell"><input type="checkbox" value="Thursday morning" aria-label="Thursday morning, 10 AM to 12 PM"><span aria-hidden="true"><span class="t-from">10 AM</span> <span class="t-to">– 12 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Thursday afternoon" aria-label="Thursday afternoon, 1 PM to 5 PM"><span aria-hidden="true"><span class="t-from">1 PM</span> <span class="t-to">– 5 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Thursday evening" aria-label="Thursday evening, 5 PM to 8 PM"><span aria-hidden="true"><span class="t-from">5 PM</span> <span class="t-to">– 8 PM</span></span></label>
+                    <span class="time-day" aria-hidden="true">Fri</span>
+                    <label class="time-cell"><input type="checkbox" value="Friday morning" aria-label="Friday morning, 10 AM to 12 PM"><span aria-hidden="true"><span class="t-from">10 AM</span> <span class="t-to">– 12 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Friday afternoon" aria-label="Friday afternoon, 1 PM to 5 PM"><span aria-hidden="true"><span class="t-from">1 PM</span> <span class="t-to">– 5 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Friday evening" aria-label="Friday evening, 5 PM to 7 PM"><span aria-hidden="true"><span class="t-from">5 PM</span> <span class="t-to">– 7 PM</span></span></label>
+                    <span class="time-day" aria-hidden="true">Sat</span>
+                    <label class="time-cell"><input type="checkbox" value="Saturday morning" aria-label="Saturday morning, 9 AM to 12 PM"><span aria-hidden="true"><span class="t-from">9 AM</span> <span class="t-to">– 12 PM</span></span></label>
+                    <label class="time-cell"><input type="checkbox" value="Saturday afternoon" aria-label="Saturday afternoon, 12 PM to 4 PM"><span aria-hidden="true"><span class="t-from">12 PM</span> <span class="t-to">– 4 PM</span></span></label>
+                    <span class="time-cell time-closed" aria-hidden="true">Closed</span>
+                  <span aria-hidden="true"></span>
+                  <label class="time-cell time-any"><input type="checkbox" value="Flexible — any time" data-flexible aria-label="I'm flexible, any time works"><span aria-hidden="true">I'm flexible — any time works</span></label>
+                </div>
+              </fieldset>
 
               <div class="form-group">
                 <label for="message">Anything else? <span class="opt">(optional)</span></label>
@@ -97,8 +167,16 @@ path: contact.html
               </div>
 
               <button type="submit" class="btn btn-gold btn-block">Send Request</button>
-              <p class="form-note">We'll reply within one business day to set up your trial lesson.</p>
+              <p class="form-note">We'll call or email you within one business day to set up your trial lesson.</p>
             </form>
+
+            <!-- Shown over this column for 2 seconds after "Send Request" -->
+            <div class="form-sending" aria-hidden="true">
+              <div class="form-sending-box">
+                <span class="spinner"></span>
+                <span class="form-sending-text">Sending your request…</span>
+              </div>
+            </div>
           </div>
 
           <!-- Contact info -->
